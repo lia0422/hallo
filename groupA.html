@@ -13,84 +13,136 @@
 <h2>Standings</h2>
 
 <table class="standings">
-    <tr>
-        <th>Pos</th>
-        <th>Team</th>
-        <th>P</th>
-        <th>W</th>
-        <th>D</th>
-        <th>L</th>
-        <th>GF</th>
-        <th>GA</th>
-        <th>GD</th>
-        <th>Pts</th>
-    </tr>
+    <thead>
+        <tr>
+            <th>Pos</th>
+            <th>Team</th>
+            <th>P</th>
+            <th>W</th>
+            <th>D</th>
+            <th>L</th>
+            <th>GF</th>
+            <th>GA</th>
+            <th>GD</th>
+            <th>Pts</th>
+        </tr>
+    </thead>
 
-    <tr>
-        <td>1</td>
-        <td>🇲🇽 Mexico</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-    </tr>
-
-    <tr>
-        <td>2</td>
-        <td>🇰🇷 South Korea</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-    </tr>
-
-    <tr>
-        <td>3</td>
-        <td>🇿🇦 South Africa</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-    </tr>
-
-    <tr>
-        <td>4</td>
-        <td>🇨🇿 Czech Republic</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-    </tr>
+    <tbody id="tableBody">
+    </tbody>
 </table>
+
+<script>
+const teams = [
+{
+    name: "🇲🇽 Mexico",
+    P: 1,
+    W: 1,
+    D: 0,
+    L: 0,
+    GF: 2,
+    GA: 0,
+    Pts: 3
+},
+{
+    name: "🇰🇷 South Korea",
+    P: 1,
+    W: 1,
+    D: 0,
+    L: 0,
+    GF: 2,
+    GA: 1,
+    Pts: 3
+},
+{
+    name: "🇨🇿 Czech Republic",
+    P: 1,
+    W: 0,
+    D: 0,
+    L: 1,
+    GF: 1,
+    GA: 2,
+    Pts: 0
+},
+{
+    name: "🇿🇦 South Africa",
+    P: 1,
+    W: 0,
+    D: 0,
+    L: 1,
+    GF: 0,
+    GA: 2,
+    Pts: 0
+}
+];
+
+teams.forEach(team => {
+    team.GD = team.GF - team.GA;
+});
+
+teams.sort((a, b) =>
+    b.Pts - a.Pts ||
+    b.GD - a.GD ||
+    b.GF - a.GF
+);
+
+const tableBody = document.getElementById("tableBody");
+
+teams.forEach((team, index) => {
+    tableBody.innerHTML += `
+        <tr>
+            <td>${index + 1}</td>
+            <td>${team.name}</td>
+            <td>${team.P}</td>
+            <td>${team.W}</td>
+            <td>${team.D}</td>
+            <td>${team.L}</td>
+            <td>${team.GF}</td>
+            <td>${team.GA}</td>
+            <td>${team.GD}</td>
+            <td>${team.Pts}</td>
+        </tr>
+    `;
+});
+</script>
 
 <h2>Matchdays</h2>
 
-<p>June 11, 2026 — Mexico vs South Africa</p>
-<p>June 11, 2026 — South Korea vs Czech Republic</p>
-<p>June 18, 2026 — Czech Republic vs South Africa</p>
-<p>June 18, 2026 — Mexico vs South Korea</p>
-<p>June 24, 2026 — Czech Republic vs Mexico</p>
-<p>June 24, 2026 — South Africa vs South Korea</p>
+<p>
+    June 11, 2026 — Mexico 2–0 South Africa<br>
+    Estadio Azteca, Mexico City
+</p>
+
+<p>
+    June 11, 2026 — South Korea 2–1 Czech Republic<br>
+    Estadio Akron, Zapopan
+</p>
+
+<p>
+    June 18, 2026 — Czech Republic vs South Africa<br>
+    Mercedes-Benz Stadium, Atlanta
+</p>
+
+<p>
+    June 18, 2026 — Mexico vs South Korea<br>
+    Estadio Akron, Zapopan
+</p>
+
+<p>
+    June 24, 2026 — Czech Republic vs Mexico<br>
+    Estadio Azteca, Mexico City
+</p>
+
+<p>
+    June 24, 2026 — South Africa vs South Korea<br>
+    Estadio BBVA, Guadalupe
+</p>
 
 <button onclick="window.location='index.html'">
     Back to Home
 </button>
+
+<script src="script.js"></script>
 
 </body>
 </html>

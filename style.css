@@ -32,33 +32,27 @@ button:hover {
     background: orange;
 }
 
+/* Homepage Groups */
+
 .groups-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(4, minmax(250px, 1fr));
     gap: 20px;
-    margin-top: 30px;
     padding: 20px;
 }
 
 .group-card {
     background: #222;
     border: 2px solid white;
-    padding: 15px;
     border-radius: 10px;
+    padding: 15px;
     min-height: 300px;
+    cursor: pointer;
+    transition: 0.3s;
 }
-
-
-.group-card h2 {
-    color: gold;
-    margin-bottom: 20px;
-}
-
-
 
 .group-card:hover {
     transform: scale(1.03);
-    transition: 0.3s;
     border-color: gold;
 }
 
@@ -80,6 +74,8 @@ button:hover {
     font-size: 18px;
 }
 
+/* Match Schedule Popup */
+
 .matches {
     display: none;
     margin-top: 15px;
@@ -100,8 +96,11 @@ button:hover {
     line-height: 1.4;
 }
 
+/* Group Page Standings */
+
 .standings {
     width: 90%;
+    max-width: 900px;
     margin: 20px auto;
     border-collapse: collapse;
     background: #222;
@@ -110,7 +109,7 @@ button:hover {
 .standings th,
 .standings td {
     border: 1px solid white;
-    padding: 8px;
+    padding: 10px;
     text-align: center;
 }
 
@@ -122,3 +121,35 @@ button:hover {
 .standings tr:hover {
     background: #333;
 }
+
+.standings td:first-child {
+    font-weight: bold;
+}
+
+/* Matchdays Section */
+
+.matchdays {
+    max-width: 900px;
+    margin: 40px auto;
+    background: #222;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.matchdays h2 {
+    color: gold;
+    text-align: center;
+}
+
+.matchdays p {
+    margin: 12px 0;
+    line-height: 1.5;
+}
+
+/* Back Button */
+
+.back-btn {
+    margin-top: 30px;
+}
+
